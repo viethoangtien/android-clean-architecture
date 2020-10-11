@@ -1,4 +1,4 @@
-package com.soict.hoangviet.data.models.base
+package com.soict.hoangviet.domain.models.base
 
 import com.google.gson.annotations.SerializedName
 

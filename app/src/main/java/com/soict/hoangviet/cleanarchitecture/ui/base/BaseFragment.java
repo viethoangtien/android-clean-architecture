@@ -21,10 +21,11 @@ import com.soict.hoangviet.cleanarchitecture.ui.main.MainViewModel;
 import com.soict.hoangviet.data.apiservice.ApiError;
 import com.soict.hoangviet.data.apiservice.ApiException;
 import com.soict.hoangviet.data.apiservice.NetworkConnectionInterceptor;
-import com.soict.hoangviet.data.models.base.BaseError;
-import com.soict.hoangviet.data.models.base.ListResponse;
-import com.soict.hoangviet.data.models.base.ObjectResponse;
-import com.soict.hoangviet.data.models.base.Result;
+import com.soict.hoangviet.domain.models.base.BaseError;
+import com.soict.hoangviet.domain.models.base.ListLoadMoreResponse;
+import com.soict.hoangviet.domain.models.base.ListResponse;
+import com.soict.hoangviet.domain.models.base.ObjectResponse;
+import com.soict.hoangviet.domain.models.base.Result;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -181,6 +182,21 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends DaggerFrag
             case Result.ERROR:
                 handleNetworkError(response.getError());
                 hideLoading();
+        }
+    }
+
+    protected <U> void handleListLoadMoreResponse(ListLoadMoreResponse<U> response) {
+        switch (response.getType()) {
+            case Result.LOADING:
+                showLoading();
+                break;
+            case Result.SUCCESS:
+                hideLoading();
+                getListResponse(response.getData().getData(), response.isRefresh(), response.isLoadingMore());
+                break;
+            case Result.ERROR:
+                hideLoading();
+                handleNetworkError(response.getError());
         }
     }
 

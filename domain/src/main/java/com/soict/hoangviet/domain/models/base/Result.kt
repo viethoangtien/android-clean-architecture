@@ -1,4 +1,4 @@
-package com.soict.hoangviet.data.models.base
+package com.soict.hoangviet.domain.models.base
 
 object Result {
     const val LOADING = 0

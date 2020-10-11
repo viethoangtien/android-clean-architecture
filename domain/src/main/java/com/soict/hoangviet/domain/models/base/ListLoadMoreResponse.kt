@@ -1,4 +1,4 @@
-package com.soict.hoangviet.data.models.base
+package com.soict.hoangviet.domain.models.base
 
 import com.google.gson.annotations.SerializedName
 
@@ -12,13 +12,25 @@ open class ListLoadMoreResponse<T>(
 ) : BaseResponse() {
     companion object {
         fun <T> loading(): ListLoadMoreResponse<T> =
-            ListLoadMoreResponse(Result.LOADING, null, null)
+            ListLoadMoreResponse(
+                Result.LOADING,
+                null,
+                null
+            )
 
         fun <T> success(data: ArrayList<T>): ListLoadMoreResponse<T> =
-            ListLoadMoreResponse(Result.SUCCESS, BaseListResponse(data = data), null)
+            ListLoadMoreResponse(
+                Result.SUCCESS,
+                BaseListResponse(data = data),
+                null
+            )
 
         fun <T> error(throwable: Throwable): ListLoadMoreResponse<T> =
-            ListLoadMoreResponse(Result.ERROR, null, throwable)
+            ListLoadMoreResponse(
+                Result.ERROR,
+                null,
+                throwable
+            )
     }
 }
 

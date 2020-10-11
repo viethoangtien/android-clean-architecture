@@ -1,18 +1,19 @@
 package com.soict.hoangviet.cleanarchitecture.ui.news
 
 import androidx.lifecycle.MutableLiveData
-import com.soict.hoangviet.data.models.base.ListResponse
+import com.soict.hoangviet.cleanarchitecture.base.BaseViewModel
+import com.soict.hoangviet.domain.models.base.ListLoadMoreResponse
 import com.soict.hoangviet.domain.models.NewsDomain
 import com.soict.hoangviet.domain.usecases.GetNewsUseCase
-import com.soict.hoangviet.cleanarchitecture.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.util.ArrayList
 import javax.inject.Inject
 
 class NewsViewModel @Inject constructor(
     val getNewsUseCase: GetNewsUseCase
 ) : BaseViewModel() {
-    var newsLiveData = MutableLiveData<ListResponse<NewsDomain>>()
+    var newsLiveData = MutableLiveData<ListLoadMoreResponse<NewsDomain>>()
 
     fun fetchNews() {
         compositeDisposable.add(
@@ -20,12 +21,12 @@ class NewsViewModel @Inject constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe {
-                    newsLiveData.value = ListResponse.loading()
+                    newsLiveData.value = ListLoadMoreResponse.loading()
                 }
                 .subscribe({
-                    newsLiveData.value = ListResponse.success(it as ArrayList<NewsDomain>)
+                    newsLiveData.value = ListLoadMoreResponse.success(it.data?.data as ArrayList<NewsDomain>)
                 }, {
-                    newsLiveData.value = ListResponse.error(it)
+                    newsLiveData.value = ListLoadMoreResponse.error(it)
                 })
         )
     }

@@ -1,6 +1,6 @@
 package com.soict.hoangviet.data.apiservice
 
-import com.soict.hoangviet.data.models.base.Result
+import com.soict.hoangviet.domain.models.base.Result
 import java.net.HttpURLConnection
 
 class ApiException : Exception {

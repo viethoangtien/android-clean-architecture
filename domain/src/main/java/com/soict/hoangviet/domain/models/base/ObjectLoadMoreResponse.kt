@@ -1,6 +1,7 @@
-package com.soict.hoangviet.data.models.base
+package com.soict.hoangviet.domain.models.base
 
-class ObjectLoadMoreResponse<T> : ObjectResponse<T> {
+class ObjectLoadMoreResponse<T> :
+    ObjectResponse<T> {
     var isRefresh: Boolean = false
     var isLoadingMore: Boolean = false
 

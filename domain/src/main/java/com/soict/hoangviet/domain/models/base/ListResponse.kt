@@ -1,4 +1,4 @@
-package com.soict.hoangviet.data.models.base
+package com.soict.hoangviet.domain.models.base
 
 open class ListResponse<T>(
     val type: Int,
@@ -9,13 +9,25 @@ open class ListResponse<T>(
 ) : BaseResponse() {
     companion object {
         fun <T> loading(): ListResponse<T> =
-            ListResponse(Result.LOADING, null, null)
+            ListResponse(
+                Result.LOADING,
+                null,
+                null
+            )
 
         fun <T> success(data: ArrayList<T>): ListResponse<T> =
-            ListResponse(Result.SUCCESS, data, null)
+            ListResponse(
+                Result.SUCCESS,
+                data,
+                null
+            )
 
         fun <T> error(throwable: Throwable): ListResponse<T> =
-            ListResponse(Result.ERROR, null, throwable)
+            ListResponse(
+                Result.ERROR,
+                null,
+                throwable
+            )
     }
 }
 

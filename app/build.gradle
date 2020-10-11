@@ -53,6 +53,9 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
 
+    //Fragment
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragment_version"
+
     //Gson
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 

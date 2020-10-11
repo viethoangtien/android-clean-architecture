@@ -14,10 +14,10 @@ import com.soict.hoangviet.cleanarchitecture.di.annotation.LayoutId;
 import com.soict.hoangviet.data.apiservice.ApiError;
 import com.soict.hoangviet.data.apiservice.ApiException;
 import com.soict.hoangviet.data.apiservice.NetworkConnectionInterceptor;
-import com.soict.hoangviet.data.models.base.BaseError;
-import com.soict.hoangviet.data.models.base.ListResponse;
-import com.soict.hoangviet.data.models.base.ObjectResponse;
-import com.soict.hoangviet.data.models.base.Result;
+import com.soict.hoangviet.domain.models.base.BaseError;
+import com.soict.hoangviet.domain.models.base.ListResponse;
+import com.soict.hoangviet.domain.models.base.ObjectResponse;
+import com.soict.hoangviet.domain.models.base.Result;
 
 import java.io.IOException;
 import java.net.ConnectException;

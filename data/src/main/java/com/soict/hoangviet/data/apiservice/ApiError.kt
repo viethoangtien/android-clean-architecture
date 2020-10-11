@@ -1,7 +1,7 @@
 package com.soict.hoangviet.data.apiservice
 
 import com.google.gson.annotations.SerializedName
-import com.soict.hoangviet.data.models.base.Result
+import com.soict.hoangviet.domain.models.base.Result
 import java.net.HttpURLConnection
 
 class ApiError @JvmOverloads constructor(

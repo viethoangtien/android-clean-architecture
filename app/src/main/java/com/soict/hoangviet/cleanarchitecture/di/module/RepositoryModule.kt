@@ -2,6 +2,7 @@ package com.soict.hoangviet.cleanarchitecture.di.module
 
 import com.soict.hoangviet.data.apiservice.ApiService
 import com.soict.hoangviet.data.di.NetworkModule
+import com.soict.hoangviet.data.mappers.ListNewsMapper
 import com.soict.hoangviet.data.mappers.NewsMapper
 import com.soict.hoangviet.data.repositories.NewsRepositoryImpl
 import com.soict.hoangviet.domain.repositories.NewsRepository
@@ -16,6 +17,6 @@ class RepositoryModule {
     @Singleton
     internal fun provideNewsRepository(
         apiService: ApiService,
-        newsMapper: NewsMapper
-    ): NewsRepository = NewsRepositoryImpl(apiService, newsMapper)
+        listNewsMapper: ListNewsMapper
+    ): NewsRepository = NewsRepositoryImpl(apiService, listNewsMapper)
 }

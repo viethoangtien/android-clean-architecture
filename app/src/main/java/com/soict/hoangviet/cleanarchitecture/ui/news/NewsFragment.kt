@@ -34,7 +34,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
     override fun initListener() {
         newsViewModel.newsLiveData.observe(this, Observer {
             it?.let {
-                handleListResponse(it)
+                handleListLoadMoreResponse(it)
             }
         })
     }
